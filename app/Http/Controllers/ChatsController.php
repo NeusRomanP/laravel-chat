@@ -6,7 +6,7 @@ use App\Events\MessageSent;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Log;
 
 class ChatsController extends Controller
 {
@@ -33,7 +33,16 @@ class ChatsController extends Controller
         ]);
 
         broadcast(new MessageSent($user, $message))->toOthers();
-        
+
+        $this->deleteOldMessages();
+
         return ['status' => 'Message Sent!'];
+    }
+
+    public function deleteOldMessages(){
+        $messages = Message::all();
+        $lastsMessages = Message::latest()->take(25)->get('id');
+        Log::Debug($lastsMessages);
+        Message::whereNotIn('id', $lastsMessages)->delete();
     }
 }
