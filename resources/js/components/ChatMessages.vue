@@ -88,9 +88,6 @@ import { onUpdated } from 'vue';
   })
 
   function scrollBottom(lastMessage){
-    
-    console.log(document.querySelector('.messages'));
-    console.log(lastMessage)
     lastMessage?.scrollIntoView({
       behavior: 'smooth',
     });
