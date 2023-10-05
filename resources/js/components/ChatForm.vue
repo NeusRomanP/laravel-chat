@@ -10,7 +10,7 @@
       @keyup.enter="sendMessage"
     />
     <span class="input-group-btn">
-      <button class="btn btn-primary btn-sm" id="btn-chat" @click="sendMessage">
+      <button class="btn btn-send btn-sm" id="btn-chat" @click="sendMessage">
         Send
       </button>
     </span>
@@ -30,9 +30,35 @@
           user: this.user,
           message: this.newMessage,
         });
-        //Clear the input
         this.newMessage = "";
       },
     },
   };
 </script>
+<style scoped>
+.input-group{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.btn-send{
+  background-color: rgba(15, 129, 30, 0.8);
+  color: #FFF;
+}
+
+.btn-send:hover{
+  background-color: rgba(15, 129, 30, 1);
+  color: #FFF;
+}
+
+.btn-send:focus{
+  background-color: rgba(15, 129, 30, 1);
+  border: 3px solid #AAA;
+}
+
+.form-control:focus{
+  border: 3px solid rgba(15, 129, 30, 0.5);
+  box-shadow: none;
+}
+</style>

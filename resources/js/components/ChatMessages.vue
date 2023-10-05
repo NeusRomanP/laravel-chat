@@ -16,7 +16,6 @@
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
-                second: "numeric",
                 hour12: false,
               }).format(new Date(message.created_at)) :
               new Intl.DateTimeFormat(undefined, {
@@ -25,7 +24,6 @@
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
-                second: "numeric",
                 hour12: false,
               }).format(new Date())
              }}
@@ -49,7 +47,6 @@
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
-                second: "numeric",
                 hour12: false,
               }).format(new Date(message.created_at)) :
               new Intl.DateTimeFormat(undefined, {
@@ -58,7 +55,6 @@
                 day: "numeric",
                 hour: "numeric",
                 minute: "numeric",
-                second: "numeric",
                 hour12: false,
               }).format(new Date())
              }}
@@ -126,7 +122,7 @@ ul.messages{
 .message .header{
   display: flex;
   justify-content: space-between;
-  gap: 5px;
+  gap: 10px;
   font-size: small;
 }
 
