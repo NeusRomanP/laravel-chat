@@ -1,5 +1,5 @@
 <template>
-  <main class="chat">
+  <main class="chat scroll">
     <ul class="messages">
       <li class="message-container" v-for="message in props.messages" :key="message.id">
         <div class="message my-message" v-if="message.user.email == user.email">
@@ -138,5 +138,30 @@ ul.messages{
   background-color: rgba(15, 129, 30, 0.57);
   float: right;
   text-align: end;
+}
+
+/*Aside scrollbar*/
+.scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 20px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px 0;
+}
+ 
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 129, 30, 0.8);
+  box-shadow: inset 0 0 2px #DDD;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(15, 129, 30, 1);
+  box-shadow: inset 0 0 2px #DDD;
 }
 </style>
