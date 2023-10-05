@@ -14,13 +14,11 @@ import { createApp } from 'vue';
  */
 
 const app = createApp({
-    //Store chat messages for display in this array.
     data: () => {
         return {
           messages: [],
         }
     },
-    //Upon initialisation, run fetchMessages().
     created() {
         this.fetchMessages();
         window.Echo.private('laravel-chat')
@@ -29,21 +27,23 @@ const app = createApp({
             message: e.message.message,
             user: e.user
             });
+
+            if(this.messages.length >= 25){
+                this.messages.shift();
+            }
         });
     },
     methods: {
         fetchMessages() {
-            //GET request to the messages route in our Laravel server to fetch all the messages
             axios.get("/messages").then((response) => {
-                //Save the response in the messages array to display on the chat view
                 this.messages = response.data;
             });
         },
-        //Receives the message that was emitted from the ChatForm Vue component
         addMessage(message) {
-            //Pushes it to the messages array
             this.messages.push(message);
-            //POST request to the messages route with the message data in order for our Laravel server to broadcast it.
+            if(this.messages.length >= 25){
+                this.messages.shift();
+            }
             axios.post("/messages", message).then((response) => {
                 console.log(response.data);
             });
@@ -56,6 +56,7 @@ app.component('example-component', ExampleComponent);
 import ChatMessages from './components/ChatMessages.vue';
 app.component('chat-messages', ChatMessages);
 import ChatForm from './components/ChatForm.vue';
+import axios from 'axios';
 app.component('chat-form', ChatForm);
 
 

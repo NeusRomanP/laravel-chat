@@ -40,9 +40,7 @@ class ChatsController extends Controller
     }
 
     public function deleteOldMessages(){
-        $messages = Message::all();
         $lastsMessages = Message::latest()->take(25)->get('id');
-        Log::Debug($lastsMessages);
         Message::whereNotIn('id', $lastsMessages)->delete();
     }
 }
