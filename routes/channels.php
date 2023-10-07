@@ -18,5 +18,5 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('laravel-chat', function ($user) {
-    return Auth::check();
+    return true;
 });

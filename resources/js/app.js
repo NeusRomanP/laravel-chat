@@ -21,7 +21,7 @@ const app = createApp({
     },
     created() {
         this.fetchMessages();
-        window.Echo.private('laravel-chat')
+        window.Echo.channel('laravel-chat')
         .listen('MessageSent', (e) => {
             this.messages.push({
             message: e.message.message,

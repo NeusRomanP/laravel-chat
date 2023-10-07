@@ -2,7 +2,7 @@
   <main class="chat scroll">
     <ul class="messages">
       <li class="message-container" v-for="message in props.messages" :key="message.id">
-        <div class="message my-message" v-if="message.user.email == user.email">
+        <div class="message my-message" v-if="message.user.email == user?.email">
           <div class="header">
             <strong>
               {{ message.user.name }}

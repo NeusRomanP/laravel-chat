@@ -38,7 +38,7 @@ class MessageSent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('laravel-chat'),
+            new Channel('laravel-chat'),
         ];
     }
 }

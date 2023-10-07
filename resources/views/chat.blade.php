@@ -4,7 +4,12 @@
      <div class="card chat-container">
          <div class="card-header">Chat</div>
          <div class="card-body">
-             <chat-messages :messages="messages" :user="{{ Auth::user() }}"></chat-messages>
+            @if ( Auth::user() )
+              <chat-messages :messages="messages" :user="{{ Auth::user() }}"></chat-messages>
+            @else
+              <chat-messages :messages="messages" :user="null"></chat-messages>
+            @endif
+             
          </div>
          <div class="card-footer">
             @if (Auth::user())
