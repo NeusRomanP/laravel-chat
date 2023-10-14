@@ -16,24 +16,19 @@
     </span>
   </div>
 </template>
-<script>
-  export default {
-    props: ["user"],
-    data() {
-      return {
-        newMessage: "",
-      };
-    },
-    methods: {
-      sendMessage() {
-        this.$emit("messagesent", {
-          user: this.user,
-          message: this.newMessage,
-        });
-        this.newMessage = "";
-      },
-    },
-  };
+<script setup>
+import { ref } from 'vue';
+
+  const props = defineProps(["user"]);
+  const emit = defineEmits(["messagesent"]);
+  const newMessage = ref("");
+  function sendMessage() {
+    emit("messagesent", {
+      user: props.user,
+      message: newMessage.value,
+    });
+    newMessage.value = "";
+  }
 </script>
 <style scoped>
 .input-group{
