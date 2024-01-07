@@ -26,6 +26,7 @@ import { ref } from 'vue';
     emit("messagesent", {
       user: props.user,
       message: newMessage.value,
+      created_at: new Date(),
     });
     newMessage.value = "";
   }

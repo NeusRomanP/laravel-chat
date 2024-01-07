@@ -76,6 +76,7 @@ import { onUpdated } from 'vue';
   const props = defineProps({
     messages: Array,
     user: Object,
+    created_at: Date,
   });
 
   onUpdated(() => {
