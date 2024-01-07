@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Events\MessageSent;
+use App\Http\Controllers\ChatsController;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -66,4 +67,13 @@ class MessagesTest extends TestCase
         //$response->assertStatus(200);
        
     }
+
+    public function test_cant_have_more_than_25_messages(){
+        User::factory(4)->create();
+        Message::factory(30)->create();
+        (new ChatsController())->deleteOldMessages();
+        $rows = count(Message::all());
+        $this->assertEquals(25, $rows);
+    }
+
 }
