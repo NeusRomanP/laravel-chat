@@ -24,8 +24,9 @@ const app = createApp({
         window.Echo.channel('laravel-chat')
         .listen('MessageSent', (e) => {
             this.messages.push({
-            message: e.message.message,
-            user: e.user
+                message: e.message.message,
+                user: e.user,
+                created_at: e.created_at
             });
 
             if(this.messages.length >= 25){

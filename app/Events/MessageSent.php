@@ -19,6 +19,7 @@ class MessageSent implements ShouldBroadcast
 
     public $user;
     public $message;
+    public $created_at;
 
     /**
      * Create a new event instance.
@@ -27,6 +28,7 @@ class MessageSent implements ShouldBroadcast
     {
         $this->user = $user;
         $this->message = $message;
+        $this->created_at = $message->created_at;
     }
 
 
