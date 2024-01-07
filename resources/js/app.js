@@ -45,7 +45,7 @@ const app = createApp({
                 this.messages.shift();
             }
             axios.post("/messages", message).then((response) => {
-                console.log(response.data);
+                
             });
         },
     },
