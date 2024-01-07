@@ -80,14 +80,12 @@ import { onUpdated } from 'vue';
   });
 
   onUpdated(() => {
-    let lastMessage = document.querySelector('.messages').lastElementChild;
-    scrollBottom(lastMessage);
+    let chatContainer = document.querySelector('.chat');
+    scrollBottom(chatContainer);
   })
 
-  function scrollBottom(lastMessage){
-    lastMessage?.scrollIntoView({
-      behavior: 'smooth',
-    });
+  function scrollBottom(container){
+    container.scrollTop = container.scrollHeight;
   }
   
 
