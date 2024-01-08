@@ -145,10 +145,12 @@ const config = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-node",
+  testEnvironment: "jest-environment-jsdom",
 
   // Options that will be passed to the testEnvironment
-  // testEnvironmentOptions: {},
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
 
   // Adds a location field to test results
   // testLocationInResults: false,
@@ -196,7 +198,7 @@ const config = {
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
     '^.+\\.js$': 'babel-jest',
-  },
+  }
 };
 
 export default config;
