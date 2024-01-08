@@ -38,4 +38,18 @@ describe('ChatForm.vue', () => {
 
     expect(wrapper.emitted('messagesent')).toBeFalsy();
   })
+
+  it('send message event is not emited when message is white space', async () => {
+    const wrapper = shallowMount(ChatForm, {
+      props: {
+        user: 'TestUser',
+      },
+    });
+
+    await wrapper.find('#btn-input').setValue(' ');
+
+    await wrapper.find('#btn-chat').trigger('click');
+
+    expect(wrapper.emitted('messagesent')).toBeFalsy();
+  })
 })
