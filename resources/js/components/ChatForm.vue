@@ -23,11 +23,13 @@ import { ref } from 'vue';
   const emit = defineEmits(["messagesent"]);
   const newMessage = ref("");
   function sendMessage() {
-    emit("messagesent", {
-      user: props.user,
-      message: newMessage.value,
-      created_at: new Date(),
-    });
+    if(newMessage.value !== ''){
+      emit("messagesent", {
+        user: props.user,
+        message: newMessage.value,
+        created_at: new Date(),
+      });
+    }
     newMessage.value = "";
   }
 </script>
