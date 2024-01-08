@@ -23,7 +23,7 @@ import { ref } from 'vue';
   const emit = defineEmits(["messagesent"]);
   const newMessage = ref("");
   function sendMessage() {
-    if(newMessage.value !== ''){
+    if(newMessage.value.trim() !== ''){
       emit("messagesent", {
         user: props.user,
         message: newMessage.value,
