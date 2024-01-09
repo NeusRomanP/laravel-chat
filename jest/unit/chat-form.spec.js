@@ -5,11 +5,11 @@ describe('ChatForm.vue', () => {
   it('component is rendered', () =>{
     const wrapper = shallowMount(ChatForm);
 
-    expect(wrapper.find('#btn-input').exists());
-    expect(wrapper.find('#btn-chat').exists());
+    expect(wrapper.find('#btn-input').exists()).toBeTruthy();
+    expect(wrapper.find('#btn-chat').exists()).toBeTruthy();
   })
 
-  it('send message event is emited with correct message', async () => {
+  it('send message event is emitted with correct message', async () => {
     const wrapper = shallowMount(ChatForm, {
       props: {
         user: 'TestUser',
@@ -25,7 +25,7 @@ describe('ChatForm.vue', () => {
     expect(wrapper.emitted('messagesent')[0][0].message).toBe('Hello');
   })
 
-  it('send message event is not emited when empty message', async () => {
+  it('send message event is not emitted when empty message', async () => {
     const wrapper = shallowMount(ChatForm, {
       props: {
         user: 'TestUser',
@@ -39,7 +39,7 @@ describe('ChatForm.vue', () => {
     expect(wrapper.emitted('messagesent')).toBeFalsy();
   })
 
-  it('send message event is not emited when message is white space', async () => {
+  it('send message event is not emitted when message is white space', async () => {
     const wrapper = shallowMount(ChatForm, {
       props: {
         user: 'TestUser',
