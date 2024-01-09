@@ -1,27 +1,5 @@
 <template>
-  <div class="message my-message" v-if="message.user.email == user?.email">
-    <div class="header">
-      <strong>
-        {{ message.user.name }}
-      </strong>
-      <small class="date">
-        {{
-          new Intl.DateTimeFormat(undefined, {
-            year: "numeric",
-            month: "numeric",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            hour12: false,
-          }).format(new Date(message.created_at))
-        }}
-      </small>
-    </div>
-    <p>
-      {{ message.message }}
-    </p>
-  </div>
-  <div class="message other-message" v-else>
+  <div class="message" :class="message.user.email == user?.email ? 'my-message' : 'other-message'">
     <div class="header">
       <strong>
         {{ message.user.name }}
