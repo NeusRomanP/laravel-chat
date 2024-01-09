@@ -59,6 +59,8 @@ app.component('chat-messages', ChatMessages);
 import ChatForm from './components/ChatForm.vue';
 import axios from 'axios';
 app.component('chat-form', ChatForm);
+import ChatMessage from './components/ChatMessage.vue';
+app.component('chat-message', ChatMessage);
 
 
 
