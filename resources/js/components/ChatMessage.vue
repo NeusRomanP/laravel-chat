@@ -6,7 +6,6 @@
       </strong>
       <small class="date">
         {{
-          message.created_at ?
           new Intl.DateTimeFormat(undefined, {
             year: "numeric",
             month: "numeric",
@@ -14,15 +13,7 @@
             hour: "numeric",
             minute: "numeric",
             hour12: false,
-          }).format(new Date(message.created_at)) :
-          new Intl.DateTimeFormat(undefined, {
-            year: "numeric",
-            month: "numeric",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            hour12: false,
-          }).format(new Date())
+          }).format(new Date(message.created_at))
         }}
       </small>
     </div>
@@ -37,7 +28,6 @@
       </strong>
       <small class="date">
         {{
-          message.created_at ?
           new Intl.DateTimeFormat(undefined, {
             year: "numeric",
             month: "numeric",
@@ -45,15 +35,7 @@
             hour: "numeric",
             minute: "numeric",
             hour12: false,
-          }).format(new Date(message.created_at)) :
-          new Intl.DateTimeFormat(undefined, {
-            year: "numeric",
-            month: "numeric",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            hour12: false,
-          }).format(new Date())
+          }).format(new Date(message.created_at))
         }}
       </small>
     </div>
